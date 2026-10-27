@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DestinationCard, type Destination } from "@/components/destination-card";
+import { DestinationCard, type Destination } from "@/components/destinations/destination-card";
 
 const AllDestinationPage = async () => {
   const res = await fetch("http://localhost:8000/destinations");

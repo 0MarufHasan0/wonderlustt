@@ -1,13 +1,13 @@
-import { CtaBanner } from "@/components/cta-banner";
+import { CtaBanner } from "@/components/home/cta-banner";
 import {
   DestinationCard,
   type Destination,
-} from "@/components/destination-card";
+} from "@/components/destinations/destination-card";
 import { shuffle } from "@/lib/shuffle";
-import { HeroBanner } from "@/components/hero-banner";
+import { HeroBanner } from "@/components/home/hero-banner";
 
-import { Testimonials } from "@/components/testimonials";
-import { WhyChoose } from "@/components/why-choose";
+import { Testimonials } from "@/components/home/testimonials";
+import { WhyChoose } from "@/components/home/why-choose";
 
 async function FeaturedDestinations() {
   const res = await fetch("http://localhost:8000/destinations");
