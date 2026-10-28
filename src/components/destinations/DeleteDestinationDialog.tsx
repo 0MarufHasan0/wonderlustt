@@ -14,9 +14,9 @@ import {
 import { Button } from "@/components/ui/button"
 import { Trash2 } from "lucide-react";
 import { redirect } from "next/navigation";
-import React from 'react';
 
-const DeleteDestinationDialog = ({id}) => {
+
+const DeleteDestinationDialog = ({id} : {id : string}) => {
 
     const handleDeleteDestination = async() => {
        const res = await fetch (`http://localhost:8000/destinations/${id}`,{

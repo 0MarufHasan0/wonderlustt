@@ -3,20 +3,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  ArrowRight,
+ 
   CalendarDays,
   Check,
   MapPin,
-  Pencil,
+ 
   Star,
-  Trash2,
+
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import EditDestinationDialog from "@/components/EditDestinationDialog";
-import DeleteDestinationDialog from "@/components/DeleteDestinationDialog";
+
+import EditDestinationDialog from "@/components/destinations/EditDestinationDialog";
+import DeleteDestinationDialog from "@/components/destinations/DeleteDestinationDialog";
+import BookingCard from "@/components/Booking/BookingCard";
 
 type Destination = {
   _id?: string;
@@ -42,11 +41,7 @@ const DEFAULT_HIGHLIGHTS = [
   "Guided island hopping tour",
 ];
 
-const BOOKING_PERKS = [
-  "Free cancellation up to 7 days",
-  "Travel insurance included",
-  "24/7 customer support",
-];
+
 
 const DestinationDetailsPage = async ({
   params,
@@ -147,44 +142,8 @@ const DestinationDetailsPage = async ({
         </div>
 
         {/* Right column — booking card */}
-        <Card className="h-fit bg-muted/50">
-          <CardContent className="flex flex-col gap-4">
-            <div>
-              <p className="text-xs text-muted-foreground">Starting from</p>
-              <p className="mt-1 text-3xl font-semibold text-cyan-600">
-                ${Number(destination.price).toLocaleString("en-US")}
-              </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">per person</p>
-            </div>
-
-            <Input
-              type="date"
-              readOnly
-              value={destination.departureDate ?? ""}
-              aria-label="Departure date"
-            />
-
-            <Button
-              size="lg"
-              className="w-full bg-cyan-600 text-white hover:bg-cyan-700"
-            >
-              Book Now
-              <ArrowRight data-icon="inline-end" />
-            </Button>
-
-            <ul className="flex flex-col gap-2.5">
-              {BOOKING_PERKS.map((perk) => (
-                <li
-                  key={perk}
-                  className="flex items-center gap-2 text-xs text-muted-foreground"
-                >
-                  <Check className="size-3.5 shrink-0 text-green-500" />
-                  {perk}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+        <BookingCard destination={destination}  />
+       
       </div>
     </section>
   );

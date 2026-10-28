@@ -1,4 +1,4 @@
-export interface IDestination {
+export default interface IDestination {
   _id?: string;
   name: string;
   country: string;
